@@ -1,6 +1,6 @@
 {
   "name": "miniprogram-custom-tab-bar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "小程序自定义底部导航栏组件",
   "main": "miniprogram_dist/index.js",
   "scripts": {
