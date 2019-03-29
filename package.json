@@ -1,7 +1,7 @@
 {
   "name": "miniprogram-custom-tab-bar",
   "version": "1.0.0",
-  "description": "",
+  "description": "小程序自定义底部导航栏组件",
   "main": "miniprogram_dist/index.js",
   "scripts": {
     "dev": "gulp dev --develop",
@@ -29,9 +29,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wechat-miniprogram/miniprogram-custom-component.git"
+    "url": "https://github.com/ljybill/miniprogram-custom-tab-bar"
   },
-  "author": "wechat-miniprogram",
+  "author": "ljybill@aliyun.com",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.3",
