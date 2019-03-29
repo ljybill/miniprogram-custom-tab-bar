@@ -1,0 +1,17 @@
+<view class="tab-bar" style="background-color: {{config.backgroundColor}};">
+    <view class="tab-bar-border {{config.borderStyle}}" style="border-top-color: {{borderColor}};"></view>
+    <view class="tab-bar-list">
+        <view class="tab-bar-item" style="color: {{item.idx === activeIdx ? config.selectedColor : config.color}};order: {{item.idx}};" wx:for="{{list}}" wx:key="{{item.pagePath}}" data-page-path="{{item.pagePath}}" bind:tap="switchTab">
+            <view class="tab-bar-item-icon">
+                <image src="{{item.idx === activeIdx ? item.selectedIconPath : item.iconPath}}" />
+                <view wx:if="{{item.redDot}}" class="red-dot"></view>
+            </view>
+            <view class="tab-bar-item-text">{{item.text}}</view>
+        </view>
+        <view wx:if="{{config.customNode && list.length <= 4}}" class="tab-bar-item custom" style="order: {{customOrder}};" bind:tap="handleCustomNodeTap">
+            <view class="tab-bar-item-icon">
+                <image style="{{customActive ? config.customNode.activeStyle : config.customNode.style}}; transition: {{customTransitionTime}};" src="{{config.customNode.iconPath}}" />
+            </view>
+        </view>
+    </view>
+</view>

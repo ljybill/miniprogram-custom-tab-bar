@@ -1,0 +1,76 @@
+// out: ./index.wxss, compress: false, sourceMap: false
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding-bottom: env(safe-area-inset-bottom);
+
+  &-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+
+    &.white {
+      border-top-color: #fff;
+    }
+  }
+
+  &-list {
+    display: flex;
+  }
+
+  &-item {
+    flex: 1;
+    text-align: center;
+    padding: 10rpx 0 0;
+
+    &-icon {
+      position: relative;
+      margin: 0 auto;
+      width: 27px;
+      height: 27px;
+
+      image {
+        width: 27px;
+        height: 27px;
+      }
+    }
+
+    &-text {
+      font-size: 20rpx;
+    }
+
+    &.custom {
+      .tab-bar-item-icon {
+        image {
+          position: absolute;
+          width: 100rpx;
+          height: 100rpx;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          margin-left: -50rpx;
+          margin-top: -66rpx;
+          transform-origin: center center;
+          transition: transform 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.red-dot {
+  position: absolute;
+  background-color: red;
+  top: 0;
+  right: 0;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate3d(10rpx, 0, 0);
+}
