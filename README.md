@@ -1,24 +1,47 @@
-# miniprogram-custom-component
+# miniprogram-custom-tab-bar
 
-小程序自定义组件开发模板：
+小程序自定义底部导航栏组件
 
-* 支持 less 编写 wxss
-* 使用 webpack 构建 js
-* 支持自定义组件单元测试
-* 支持 eslint
-* 支持多入口构建
+* 适配iPhone X
+* 无需额外配置，甚至不用传参，自动读取app.json中tabBar的配置
+* 使用wx.showTabBarRedDot方法可以设置红点
+* 可以自定义样式，摆脱微信限制（如borderStyle仅支持black/white的限制）
+* 可以定制个性化逻辑
+
+## 效果图
+
+![](./doc/preview.gif)
 
 ## 使用
 
-* 使用[命令行工具](https://github.com/wechat-miniprogram/miniprogram-cli)进行初始化
-* 直接从 github 上 clone 下来
+* npm i miniprogram-custom-tab-bar
+* 在tab页面注册并引入组件即可
 
-## 开发
+## 如何实现预览图中 中间突出来的图标
+
+因为组件原理是拿app.json实现的，我们可以直接在app.json的`"tabBar"`中加入如下代码,其中iconPath可以用绝对路径，也可以用网上路径
+
+    // app.json
+    "tabBar":{
+        ...,
+        "customNode": {
+        "iconPath": "/image/x.png",
+        "activeStyle": "transform: rotate(45deg);",
+        "style": "transform: rotate(0deg);"
+        },
+        ...
+    }
+
+**组件还在开发中，如果大家需要某些功能可以提一个issue，我会考虑把它加入到组件中去**
+
+## 二次开发
+
+clone 本项目，之后修改src目录中的内容，目录结构基本与小程序插件模板一致，此处是[具体文档](https://github.com/wechat-miniprogram/miniprogram-custom-component)
 
 1. 安装依赖：
 
 ```
-npm install
+npm i 或 yarn
 ```
 
 2. 执行命令：
@@ -43,33 +66,6 @@ npm run watch
 * 内置支持 less、sourcemap 等功能，默认关闭。如若需要可以自行修改 tools/config.js 配置文件中相关配置。
 * 内置支持多入口构建，如若需要可自行调整 tools/config.js 配置文件的 entry 字段。
 * 默认开启 eslint，可自行调整规则或在 tools/config.js 中注释掉 eslint-loader 行来关闭此功能。
-
-## 发布
-
-> ps: 发布前得确保已经执行构建，小程序 npm 包只有构建出来的目录是真正被使用到的。
-
-1. 如果还没有 npm 帐号，可以到[ npm 官网](https://www.npmjs.com/)注册一个 npm 帐号。
-2. 在本地登录 npm 帐号，在本地执行：
-
-```
-npm adduser
-```
-
-或者
-
-```
-npm login
-```
-
-3. 在已完成编写的 npm 包根目录下执行：
-
-```
-npm publish
-```
-
-到此，npm 包就成功发布到 npm 平台了。
-
-> PS：一些开发者在开发过程中可能修改过 npm 的源，所以当进行登录或发布时需要注意要将源切回 npm 的源。
 
 ## 目录结构
 
