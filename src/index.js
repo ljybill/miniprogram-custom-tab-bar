@@ -4,10 +4,12 @@ import {getActive, setActive, listenActiveChange} from './extra/customActive'
 const fixListConfig = function (item, index) {
   const result = {} // 使用新对象，类似浅拷贝
   result.pagePath = '/' + item.pagePath.replace(/.html$/g, '')
-  result.iconPath = item.iconData ? 'data:image/png;base64,' + item.iconData : '/' + item.iconPath
+  result.iconPath = item.iconData
+    ? 'data:image/png;base64,' + item.iconData
+    : '/' + item.iconPath.replace(/\\/g, '/')
   result.selectedIconPath = item.selectedIconData
     ? 'data:image/png;base64,' + item.selectedIconData
-    : '/' + item.selectedIconPath
+    : '/' + item.selectedIconPath.replace(/\\/g, '/')
   result.idx = index
   result.redDot = false
   result.text = item.text
